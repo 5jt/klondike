@@ -142,7 +142,7 @@ Discussion
 ----------
 
 The source code is short, and written for study and discussion. 
-See [code.kx.com/q/learn/reading/klondike](https://code.kx.com/q/learn/reading/klondike/).
+<!-- See [code.kx.com/q/learn/reading/klondike](https://code.kx.com/q/learn/reading/klondike/). -->
 
 
 Agenda
