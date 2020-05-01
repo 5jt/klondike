@@ -18,6 +18,8 @@ A project of the Kx Librarian (librarian@kx.com).
 About Klondike
 --------------
 
+![Klondike layout](klondike.png)
+
 https://en.wikipedia.org/wiki/Klondike_(solitaire)
 
 
