@@ -73,11 +73,11 @@ move_:{[g;n;f;t]
   rpm g }
 
 rpm:{[g] / record possible moves
-  / moves to foundation from waste or tableau
   top:{(y,'i-1)where 0<i:ce x y}[g`c]; / positions of top cards
+  / moves to foundation from waste or tableau
   fm:{[c;m]
   	cards:c ./:m[;0 1]; / cards to move
-  	nof:{SYM?`$(NUMBERS NUMBER x),'SUIT x}le c m[;2]; / next cards on foundation
+  	nof:SYM?`${(NUMBERS NUMBER x),'SUIT x}le c m[;2]; / next cards on foundation
   	m where(cards=nof)or(NUMBER[cards]=1)and SUIT[cards]=SUITS FOUNDATION?m[;2] 
   }[g`c] top[WASTE,TABLEAU] cross FOUNDATION;
   / moves to tableau from waste, foundation or tableau
@@ -97,9 +97,7 @@ see:{[g] / display game
   top:{((HC;ES)count[x]=0),ES^y}. 0 1 _ le g[`c;STOCK,WASTE,FOUNDATION];
   show (`$string count[g[`c;STOCK]],g`p),'SYM 2 7#(2#top),SP,(2_ top),7#SP;
   / columns
-  c:g[`c;TABLEAU]{x|HC*not x in y}\:g`x; /   hide unless exposed
-  d:@[c; where 0=ce c; ,; ES]; / empty stacks
-  show SYM d{x[;y]}/:til max ce d; 
+  show SYM {flip x[;til max ce x]}{x,'(0=ce x)#'ES}{[g;c]g[`c;c]|HC*not g[`c;c]in g[`x]}[g] TABLEAU; 
   show 21#"_";
   show "score: ",string g`s; 
   show $[0=count g`pm; "No moves possible";
